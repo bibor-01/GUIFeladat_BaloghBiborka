@@ -2,6 +2,7 @@ package view;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.filechooser.FileSystemView;
 
 public class MainForm extends javax.swing.JFrame {
@@ -37,7 +38,7 @@ public class MainForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        kilepesJRB = new javax.swing.JRadioButtonMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -177,9 +178,14 @@ public class MainForm extends javax.swing.JFrame {
         });
         jMenu1.add(jCheckBoxMenuItem1);
 
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Kilépés");
-        jMenu1.add(jRadioButtonMenuItem1);
+        kilepesJRB.setSelected(true);
+        kilepesJRB.setText("Kilépés");
+        kilepesJRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kilepesJRBActionPerformed(evt);
+            }
+        });
+        jMenu1.add(kilepesJRB);
 
         jMenuBar1.add(jMenu1);
 
@@ -230,11 +236,16 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formAncestorMoved
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        JFileChooser fc = new JFileChooser();
-      
-        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-        fc.showOpenDialog(jPanel1);
+        File f = new File("C:\\Users\\szfb\\Documents\\NetBeansProjects\\GaleriaProjekt");
+        JFileChooser jf = new JFileChooser(f, FileSystemView.getFileSystemView());
+        jf.showOpenDialog(jPanel1);
+
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void kilepesJRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kilepesJRBActionPerformed
+        JFrame jFrame = new JFrame();
+        jPanel1.showMessageDialog(jFrame, "Biztos kiléps?");
+    }//GEN-LAST:event_kilepesJRBActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -289,6 +300,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem kilepesJRB;
     // End of variables declaration//GEN-END:variables
 }
